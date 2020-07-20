@@ -15,7 +15,14 @@ class ProductController {
 		const data = req.body;
 		const product = new ProductModel({
 			title: data.title,
-			desc: data.desc
+			desc: data.desc,
+	      	category: data.category,
+	      	image: data.image,
+	      	price: data.price,
+	      	company: data.company,
+	      	rating: data.rating,
+	      	numReviews: data.numReviews,
+	      	countInStock: data.countInStock
 		});
 
 		product.save().then(() => {
@@ -24,7 +31,7 @@ class ProductController {
 	}
 
 	read(req, res) {
-		ProductModel.findOne({ _id: req.params.id }).then(product => {
+		ProductModel.findById({ _id: req.params.id }).then(product => {
 			if(!product) {
 				res.send({ error: "not found" });
 			}
