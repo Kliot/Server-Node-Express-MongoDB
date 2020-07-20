@@ -37,7 +37,14 @@ var ProductController = /*#__PURE__*/function () {
       var data = req.body;
       var product = new _Product["default"]({
         title: data.title,
-        desc: data.desc
+        desc: data.desc,
+        category: data.category,
+        image: data.image,
+        price: data.price,
+        company: data.company,
+        rating: data.rating,
+        numReviews: data.numReviews,
+        countInStock: data.countInStock
       });
       product.save().then(function () {
         res.send({
@@ -48,7 +55,7 @@ var ProductController = /*#__PURE__*/function () {
   }, {
     key: "read",
     value: function read(req, res) {
-      _Product["default"].findOne({
+      _Product["default"].findById({
         _id: req.params.id
       }).then(function (product) {
         if (!product) {
