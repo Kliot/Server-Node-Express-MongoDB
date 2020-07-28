@@ -21,8 +21,8 @@ var cors = require('cors');
 const app = express();
 
 
-//mongoose.connect("mongodb://localhost/store", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-
+mongoose.connect("mongodb+srv://admin:LzleozMrsHvfH5tL@cluster0-qofod.mongodb.net/<dbname>?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+//mongoose.connect("mongodb://localhost/store", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 

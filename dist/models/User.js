@@ -13,21 +13,30 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var ProductSchema = new _mongoose.Schema({
-  title: String,
-  desc: String,
-  category: String,
-  image: String,
-  price: Number,
-  company: String,
-  rating: Number,
-  numReviews: Number,
-  countInStock: Number
-}, {
-  timestamps: true
+var UserSchema = new _mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    index: true,
+    dropDups: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    "default": false
+  }
 });
 
-var Product = _mongoose["default"].model('Product', ProductSchema);
+var User = _mongoose["default"].model('User', UserSchema);
 
-var _default = Product;
+var _default = User;
 exports["default"] = _default;

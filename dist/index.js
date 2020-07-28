@@ -29,7 +29,11 @@ var cors = require('cors');
 
 var app = (0, _express["default"])();
 
- //mongoose.connect("mongodb://localhost/store", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+_mongoose["default"].connect("mongodb+srv://admin:LzleozMrsHvfH5tL@cluster0-qofod.mongodb.net/<dbname>?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}); //mongoose.connect("mongodb://localhost/store", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 
 app.use(_bodyParser["default"].urlencoded({
